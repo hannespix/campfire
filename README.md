@@ -18,7 +18,11 @@ These are the built, self-contained files. Every page works offline, on a phone,
 | `modules/` | eight live tools: Myth or Fact?, Token Oracle, Context Circle, Words, Prompt Forge, Git Time Machine, Fireplace Check, Booth Builder |
 | `pdf/` | every deck as a PDF handout |
 | `art/` | pixel art as SVG (animated in steps, still with reduced motion) and PNG |
-| `campfire.pixiboard.json` | the whole talk as a PixiNotes board: drop it onto any board in [PixiNotes](https://hannespix.github.io/pixinotes/) and it arrives as a new board |
+| `boards/campfire-stage.pixiboard.json` | presentation layout for the original talk with wide chapter cards and a two-row trail |
+| `campfire.pixiboard.json` | the original PixiNotes board layout |
+
+Drop either board file onto the canvas in [PixiNotes](https://hannespix.github.io/pixinotes/) to import it as a new board. Use **More → Present** to start the talk.
+Run `python3 boards/build_stage.py` to regenerate the stage board from the original export and artwork.
 
 ## Credits
 
