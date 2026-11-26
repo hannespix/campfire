@@ -114,6 +114,10 @@
 .reveal .v2-down { display: grid; grid-template-columns: 1fr 1fr; color: var(--deck-accent); font-size: 36px; line-height: 1.1; }
 .reveal .v2-down.single { display: block; }
 
+.reveal .v2-print-cue { display: none; }
+
 @media print {
+  .reveal .v2-demo-link { display: none; }
+  .reveal .v2-print-cue { display: block; }
   * { animation: none !important; }
 }
