@@ -21,8 +21,8 @@ These are the built, self-contained files. Every page works offline, on a phone,
 | `boards/campfire-stage.pixiboard.json` | presentation layout for the original talk with wide chapter cards and a two-row trail |
 | `campfire.pixiboard.json` | the original PixiNotes board layout |
 
-Drop either board file onto the canvas in [PixiNotes](https://hannespix.github.io/pixinotes/) to import it as a new board. Use **More → Present** to start the talk.
-Run `python3 boards/build_stage.py` to regenerate the stage board from the original export and artwork.
+Drop either board file onto the canvas in [PixiNotes](https://hannespix.github.io/pixinotes/) to import it as a new board. Use **More → Present** (**Mehr → Präsentieren**) to start the talk.
+Run `python3 boards/build_stage.py` with Python 3.10 or later to rebuild the stage board from the original export and artwork.
 
 ## Credits
 

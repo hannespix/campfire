@@ -57,7 +57,7 @@ def uri(svg: str) -> str:
 def cover(index: int, font: str) -> str:
     roman, lines, subtitle, accent, _ = CHAPTERS[index]
     label = " ".join(lines)
-    original = (ROOT / "art" / f"chapter-{index + 1}.svg").read_text()
+    original = (ROOT / "art" / f"chapter-{index + 1}.svg").read_text(encoding="utf-8")
     # Keep the original pixel scene and its reduced-motion CSS. The wide card
     # supplies its own title, so crop out the text at the top of the square art.
     scene = re.sub(
@@ -131,7 +131,7 @@ def edge(source: str, target: str, between: bool) -> dict:
 
 
 def build() -> dict:
-    data = json.loads((ROOT / "campfire.pixiboard.json").read_text())
+    data = json.loads((ROOT / "campfire.pixiboard.json").read_text(encoding="utf-8"))
     board = data["board"]
     nodes = board["nodes"]
     by_name = {n["data"].get("title") or n["data"].get("name"): n
@@ -140,7 +140,7 @@ def build() -> dict:
     title = {
         "id": "stage-title", "type": "image",
         "data": {
-            "src": uri((ROOT / "art" / "title-fire.svg").read_text()),
+            "src": uri((ROOT / "art" / "title-fire.svg").read_text(encoding="utf-8")),
             "name": "title-fire.svg", "titel": "Playing with Fire",
         },
     }
@@ -149,7 +149,7 @@ def build() -> dict:
     ordered = [title, original_title]
     joins = {original_title["id"]}
     drawings = []
-    font, = re.findall(r'@font-face\s*\{[^}]+\}', (ROOT / "index.html").read_text())
+    font, = re.findall(r'@font-face\s*\{[^}]+\}', (ROOT / "index.html").read_text(encoding="utf-8"))
 
     for i, (_, _, _, _, titles) in enumerate(CHAPTERS):
         col = i if i < 4 else 7 - i
