@@ -1,0 +1,443 @@
+<section id="start" class="v2-title" data-chapter="The Gathering">
+  <h1 class="sr-only">Playing with Fire</h1>
+  <img class="v2-poster" data-art="title-fire.svg" alt="Playing with Fire. Stories around the fire. An evening with VAVE, drawn in pixel art.">
+  <p class="v2-title-caption">AI, first drafts and what happens after</p>
+  <aside class="notes">
+    00–06 · The Gathering. Start with this slide while people sit down. 00–01 · Open with the scene. Long before anyone wrote, people sat around fires to share what they had learned. Tonight the stories come from building little things with AI, including a draft built for the agency. Tell the room there is an hour for the story and half an hour afterwards to try things and talk. Invite them to keep a question in mind for that second part.
+  </aside>
+</section>
+
+<section id="monday" data-chapter="The Gathering">
+  <p class="kicker">The Gathering</p>
+  <h2>Who has time for<br> the next build?</h2>
+  <div class="v2-metrics">
+    <div><strong>40 h</strong><span>available</span></div>
+    <div><strong>50 h</strong><span>already planned</span></div>
+  </div>
+  <p class="small">One person in one week · Example data</p>
+  <aside class="notes">
+    01–03 · Begin with the Monday planning situation. A new build needs someone from 3D. You look at this week's availability and two different projects have already booked the same person. Give people a beat to notice the gap. Ask for a quick show of hands if that scenario feels familiar. The numbers are example data. Promise to come back to how the prototype makes the answer visible and how watching someone work changed the screen.
+  </aside>
+</section>
+
+<section id="hannes" data-chapter="The Gathering">
+  <p class="kicker">Hannes</p>
+  <h2 class="sm">I learned to describe the work</h2>
+  <img class="v2-life" data-art="life-strip.svg" alt="Six illustrated stages from childhood on a farm via winemaking and public administration to building with AI.">
+  <aside class="notes">
+    03–04 · Tell one personal detail from the life strip, then connect it to the room. In winemaking and administration I learned to notice how work actually happens and explain the context to someone who wasn't there. That is also part of a designer's job. On a project, taste helps me see that a first draft feels wrong. A good brief and a test help me explain exactly what needs to change.
+  </aside>
+</section>
+
+<section id="route" data-chapter="The Gathering">
+  <div class="cols wr">
+    <img class="art v2-map" data-art="story-map.svg" alt="Eight stops from The Gathering through Old Fires, Words, Kindling, Many Fires, VAVE and Smoke to Embers.">
+    <div>
+      <p class="kicker">Tonight</p>
+      <h2 class="sm">Two projects.<br> One way to learn.</h2>
+      <ul class="v2-lines">
+        <li>A small stand prototype</li>
+        <li>A real planning problem</li>
+        <li>Demos and conversation after the hour</li>
+      </ul>
+    </div>
+  </div>
+  <aside class="notes">
+    04–06 · Use the map to orient people. We will first look at what the model has to work with, then brief a small stand prototype, and then use vave.log to see what happens when someone actually uses the thing. The problems that show up on small projects are often already visible here. Leave the board and the browser tools for the second part. Put the question from the preceding slide back in people's minds before turning to the short history.
+  </aside>
+</section>
+
+<section id="eliza" data-chapter="Old Fires">
+  <div class="cols wr">
+    <div class="pic"><svg data-px-icon="screen" data-scale="18" aria-hidden="true"></svg></div>
+    <div>
+      <p class="kicker">Old Fires · 1966</p>
+      <h2>ELIZA</h2>
+      <p class="lead">A sentence came in.<br> A question came back.</p>
+    </div>
+  </div>
+  <aside class="notes">
+    06–10 · Old Fires. 06–07 · Give a made-up exchange. “I am worried about the deadline.” “Tell me more about the deadline.” ELIZA used scripts and patterns to turn what the user typed into a reply. A familiar conversational form was enough for people to read meaning into it. That is the piece of history that matters tonight. Leave the full timeline for a handout.
+  </aside>
+</section>
+
+<section id="chatgpt" data-chapter="Old Fires">
+  <p class="kicker">Old Fires · 2022</p>
+  <h2>ChatGPT</h2>
+  <p class="lead narrow">A conversation became a way to draft, rewrite and explore.</p>
+  <blockquote class="quote mt">“Give me three ways to explain this exhibit to someone who just walked in.”</blockquote>
+  <aside class="notes">
+    07–09 · A chat interface made it easy to treat a brief as something to iterate on. Picture a design team starting with the same exhibit and asking for copy for a visitor, a school group and a buyer. The model can produce three quite different angles quickly. The team still needs to know the installation, the audience and the facts. The examples are illustrative. GPT stands for generative pre-trained transformer, and the underlying Transformer architecture dates to 2017. You can say that in one sentence and return to the use case.
+  </aside>
+</section>
+
+<section id="agents-era" data-chapter="Old Fires">
+  <div class="cols wl">
+    <div>
+      <p class="kicker">Old Fires · today</p>
+      <h2 class="sm">Now the assistant can use tools</h2>
+      <p class="lead">Propose an edit. Open a pull request. Add a card to a board.</p>
+    </div>
+    <div class="pic"><svg data-px="pixfire" data-scale="10" aria-hidden="true"></svg></div>
+  </div>
+  <aside class="notes">
+    09–10 · Make the transition from answers to actions. A text answer can describe a task list. With a connected board tool and permission, the assistant can also create the cards people will use. Say that this specific action will be in the second part. Now take one step back. The assistant needs a way to produce the next piece of text and a way to get the facts it is working from.
+  </aside>
+</section>
+
+<section id="tokens" data-chapter="Words by the Fire">
+  <p class="kicker">Words by the Fire</p>
+  <h2 class="sm">It predicts the next token</h2>
+  <p class="lead">A token can be a word, part of a word or punctuation.</p>
+  <div class="v2-tokens" aria-label="Illustrated token split: The, booth, needs, more, light, full stop">
+    <span>The</span><span> booth</span><span> needs</span><span> more</span><span class="v2-hot"> light</span><span>.</span>
+  </div>
+  <p class="small">Illustrative split. Each model has its own tokenizer.</p>
+  <aside class="notes">
+    10–19 · Words by the Fire. 10–12 · Say the unfinished sentence “The booth needs more…” and let people silently supply a word. Light, space and staff would all be plausible given different briefs. A model assigns probabilities to possible next tokens and repeats the process as it writes. The blocks are an illustration, not the output of a particular tokenizer. The useful part is that a likely continuation is one that fits the input. It can still be the wrong answer for this client.
+  </aside>
+</section>
+
+<section id="light-circle" data-chapter="Words by the Fire">
+  <div class="cols wr">
+    <div class="pic"><svg data-px="circle" data-scale="10" aria-hidden="true"></svg></div>
+    <div>
+      <h2 class="sm">What fits in the circle?</h2>
+      <p class="lead">The current request carries a limited amount of information.</p>
+      <p class="small">Messages, instructions, files and tool results can all take up space.</p>
+    </div>
+  </div>
+  <aside class="notes">
+    12–14 · The light is a picture of what reaches the model in this request. Imagine the same stand project accumulating logo directions, lighting, materials and budgets. Put facts just inside or outside the light as you talk. Explain that applications can shorten a conversation, summarise it or bring back a relevant file. The practical move is to make the critical constraints available for the step that needs them. Remind the audience this is why a spec sheet is often handier than the transcript of a design meeting.
+  </aside>
+</section>
+
+<section id="violet" data-chapter="Words by the Fire">
+  <p class="kicker">The 6 × 4 m coffee stand</p>
+  <h2 class="sm">What colour was the logo?</h2>
+  <div class="v2-cards two">
+    <article class="box"><h3>Guess</h3><p class="lead">“A warm coffee brown?”</p><p class="small">Sounds plausible for a roaster.</p></article>
+    <article class="box hot"><h3>With the brief</h3><p class="lead">“The logo is violet.”</p><p class="small">The relevant fact is in the request.</p></article>
+  </div>
+  <aside class="notes">
+    14–16 · This is a scripted example from Context Circle. An early message established violet as the brand colour. When it is missing from the request, the answer falls back on a plausible association with coffee. On the right, the brief goes in and the answer has a clear basis. Connect that to the designer's familiar experience of opening the wrong version of a brand book. Use the term hallucination for a plausible-sounding error and explain that a human still checks the production file. Anyone who wants to replay the example can do it after the talk.
+  </aside>
+</section>
+
+<section id="mcp-words" data-chapter="Words by the Fire">
+  <p class="kicker">An agent with a tool</p>
+  <h2 class="sm">“Add this idea to the board”</h2>
+  <div class="v2-flow" aria-label="Assistant uses an MCP tool to add a card to PixiNotes">
+    <div class="box"><h3>Assistant</h3><p>Uses the request</p></div>
+    <span aria-hidden="true">→</span>
+    <div class="box hot"><h3>MCP tool</h3><p>Agreed input and action</p></div>
+    <span aria-hidden="true">→</span>
+    <div class="box"><h3>PixiNotes</h3><p>Shows the new card</p></div>
+  </div>
+  <aside class="notes">
+    16–18 · An agent can choose to use a tool as part of a task. Model Context Protocol, or MCP, is one way an application can describe the tools it offers and the input they take. Think of a standard connector whose device still decides what actions to expose. Use the exact board example. The assistant asks the tool to add an idea, the tool makes a card, and people can see what happened. Save the live write for later. This diagram illustrates the shape of the task, not an implementation map for every assistant.
+  </aside>
+</section>
+
+<section id="permissions" data-chapter="Words by the Fire">
+  <p class="kicker">Before an action</p>
+  <h2 class="sm">What may this tool do?</h2>
+  <div class="v2-cards three">
+    <article class="box"><h3>Read</h3><p>Look up the brief.</p></article>
+    <article class="box"><h3>Draft</h3><p>Propose a change.</p></article>
+    <article class="box hot"><h3>Write</h3><p>Change the shared board.</p></article>
+  </div>
+  <aside class="notes">
+    18–19 · One prompt can describe all three actions. The application can make some available and others unavailable. Ask yourself what you would let a collaborator do with the same project in their first ten minutes. A demo board with fictional ideas is a good place to allow a write. In a live client workspace, identity, role and the operation still matter. Carry the idea of a prepared workspace to Kindling.
+  </aside>
+</section>
+
+<section id="stand" data-chapter="Kindling">
+  <div class="cols wl">
+    <img class="art" data-art="booth-scene.svg" alt="Pixel illustration of a trade-fair stand with a counter, lounge and LED wall.">
+    <div>
+      <p class="kicker">Kindling</p>
+      <h2 class="sm">One small stand prototype</h2>
+      <p class="lead">A 6 × 4 m coffee stand. Which side should be open?</p>
+    </div>
+  </div>
+  <aside class="notes">
+    19–29 · Kindling. 19–21 · Use the same fictional coffee stand as before. The designers have a front view with a counter, a product story on an LED wall and somewhere to sit. One useful question is whether a visitor can get past the counter. This is a short experiment a designer can judge in their browser. Karpathy originally used “vibe coding” for quick exploratory coding with AI and very little attention to the code. Our starting point is exploratory too. We then give the experiment a task, a check and a round of feedback.
+  </aside>
+</section>
+
+<section id="briefing" data-chapter="Kindling">
+  <p class="kicker">Same stand, two briefs</p>
+  <h2 class="sm">Give the prototype a job</h2>
+  <div class="v2-cards two">
+    <article class="box"><h3>First try</h3><p class="lead">“Make a booth planner.”</p></article>
+    <article class="box hot"><h3>With a test in mind</h3><p>Draw a 6 × 4 m stand. Place a counter, lounge and LED wall. Keep the layout fixed while opening a side. Show how many simulated visitors get in.</p></article>
+  </div>
+  <aside class="notes">
+    21–23 · Read the first request. It could mean a 3D fly-through, a furniture catalogue or a tool for planning an entire fair. The second version makes the goal and constraint easy to see. The designer can predict a particular action, try it and see a result. Invite people to picture what “keep the layout fixed” lets them learn from the comparison. This is a short brief for the demonstration. Prompt Forge has the full prompt with audience, context, constraints and appearance.
+  </aside>
+</section>
+
+<section id="floor-plan" data-chapter="Kindling">
+  <p class="kicker">Prepared comparison · 36 simulated visitors per run</p>
+  <h2 class="sm">Open one side</h2>
+  <div class="v2-floor-pair">
+    <article>
+      <h3>Fortress</h3>
+      <div class="v2-floor" aria-label="Top-view illustration, counter along the front with the right side closed">
+        <span class="v2-led">LED</span><span class="v2-plinth" aria-hidden="true"></span><span class="v2-storage" aria-hidden="true"></span><span class="v2-screen" aria-hidden="true"></span><span class="v2-plant" aria-hidden="true"></span><span class="v2-counter">Counter</span>
+      </div>
+      <p><strong>0</strong> entered</p>
+    </article>
+    <article>
+      <h3>Same stand, right side open</h3>
+      <div class="v2-floor open" aria-label="Same top-view illustration, with access from the right aisle">
+        <span class="v2-led">LED</span><span class="v2-plinth" aria-hidden="true"></span><span class="v2-storage" aria-hidden="true"></span><span class="v2-screen" aria-hidden="true"></span><span class="v2-plant" aria-hidden="true"></span><span class="v2-counter">Counter</span><span class="v2-door" aria-hidden="true">←</span>
+      </div>
+      <p><strong>12</strong> entered</p>
+    </article>
+  </div>
+  <aside class="notes">
+    23–25 · Start on the left and let people point out the barrier. On the right, the counter, objects and floor are unchanged. Opening the right side was the only test input that changed in Booth Builder. The numbers are outputs of a small deterministic simulation with 36 visitors. It uses an abstract grid and rules for walking and attraction. It helps pick a layout question to investigate, while a real designer still has to check circulation, accessibility and the event's constraints. The two pictures show the setup schematically, including the storage, screen, plinth and plant. The live round after the talk repeats these two runs.
+  </aside>
+</section>
+
+<section id="done-when" data-chapter="Kindling">
+  <p class="kicker">The checks</p>
+  <h2 class="sm">What would tell us it works?</h2>
+  <div class="v2-cards three">
+    <article class="box"><h3>Use it</h3><p>Open the single HTML file. Place or remove an object.</p></article>
+    <article class="box"><h3>Compare it</h3><p>Change one side and run the same setup again.</p></article>
+    <article class="box hot"><h3>Explain it</h3><p>Read the visitor count and see where people spent time.</p></article>
+  </div>
+  <aside class="notes">
+    25–27 · Take the checks as if you were trying them on a laptop at a studio desk. Can you find the right control? Can you place and remove something without losing all the other objects? Can you read the result after the run? A short success criterion also helps a colleague or an agent make the next change without guessing. A standalone HTML file is a practical scope for this particular first experiment. A shared team service would have a different acceptance test and a different deployment setup.
+  </aside>
+</section>
+
+<section id="feedback" data-chapter="Kindling">
+  <h2 class="sm">Describe, build, look, test</h2>
+  <blockquote class="quote">“The flow changed, but I cannot see which side is open. Make the open edge readable and preserve the layout.”</blockquote>
+  <p class="small mt">Give the feedback with one marked screenshot.</p>
+  <aside class="notes">
+    27–28 · This is sample feedback a designer might give. It points to what happened, what did not read on screen, and what must stay in place. A marked screenshot saves interpretation. After the edit, try the same two runs again. Also check the opposite edge so changing one state did not break another. Show how the loop keeps design judgement in the room while the draft itself is quick to change.
+  </aside>
+</section>
+
+<section id="project-files" data-chapter="Kindling">
+  <p class="kicker">For the next work session</p>
+  <h2 class="sm">Put the brief where the work lives</h2>
+  <div class="v2-cards three">
+    <article class="box"><h3>Working rules</h3><p>How to run and check the project.</p></article>
+    <article class="box"><h3>Design rules</h3><p>What the layout and tone need to preserve.</p></article>
+    <article class="box hot"><h3>Project state</h3><p>What works today and what still needs a decision.</p></article>
+  </div>
+  <aside class="notes">
+    28–29 · Coding tools may read a file such as AGENTS.md or CLAUDE.md according to their setup. The practical point is to give the next person or assistant the same starting point. Write down an agreed requirement rather than assuming a long chat will carry it over. Add which tests to run and where to check the result. Now the branch and review workflow will let another person see what changed.
+  </aside>
+</section>
+
+<section id="git-flow" data-chapter="Many Fires">
+  <p class="kicker">Many Fires · GitHub</p>
+  <h2 class="sm">Treat a change like a design variant</h2>
+  <div class="v2-flow" aria-label="Branch, review in a pull request, then merge to main">
+    <div class="box"><h3>Branch</h3><p>Try a separate version.</p></div>
+    <span aria-hidden="true">→</span>
+    <div class="box hot"><h3>Pull request</h3><p>Show the change for review.</p></div>
+    <span aria-hidden="true">→</span>
+    <div class="box"><h3>Merge</h3><p>Accept it into the shared version.</p></div>
+  </div>
+  <aside class="notes">
+    29–36 · Many Fires. 29–31 · A repo holds the files and their history. A commit records a change. Compare a branch to a separate sketch a colleague can open while the shared drawing stays in place. The pull request is the conversation around what changed. A merge incorporates the change, and release is a further step. Walk through those ideas with the one open side on the stand. Keep setup details and named tools in the glossary. Use the Git Time Machine later if someone wants to see the controls.
+  </aside>
+</section>
+
+<section id="review" data-chapter="Many Fires">
+  <h2 class="sm">What gets reviewed?</h2>
+  <div class="v2-cards two">
+    <article class="box"><h3>Automatic checks</h3><p>Can the page load? Do the known scenarios still work?</p></article>
+    <article class="box hot"><h3>Human review</h3><p>Does this solve the right problem? Can a colleague understand the change?</p></article>
+  </div>
+  <p class="small mt">Publish from the approved version when the release is ready.</p>
+  <aside class="notes">
+    31–33 · Show what you would ask the reviewer to look at: a short description, two screenshots and the step to repeat. The repeatable check protects behaviour we already expect. A human decides whether the change is appropriate in context and whether the words, design and consequences fit the work. The repository can require a review and passing checks on its main branch when configured that way. Keep the access passage brief: give people and agents the access their job needs, and keep credentials outside the repo.
+  </aside>
+</section>
+
+<section id="pix-travel" data-chapter="Many Fires">
+  <p class="kicker">One example of reuse</p>
+  <h2 class="sm">Pix moves house</h2>
+  <div class="v2-remix">
+    <div class="box"><p class="small">Original mascot</p><h3>pix-el</h3></div>
+    <div class="v2-remix-path"><svg data-px="pix" data-scale="7" aria-hidden="true"></svg><p>Adapt it to the grid →</p></div>
+    <div class="box hot"><p class="small">A new card</p><h3>PixiNotes</h3></div>
+  </div>
+  <p class="small mt">Track the source and check the licence when you reuse an asset.</p>
+  <aside class="notes">
+    33–35 · Follow one arrow from the original mascot to a PixiNotes card. The task has a source, a destination and a check: is the small sprite still recognisable where it will live? Explain that keeping the original credit and the usage terms with the asset makes handoff possible later. Briefly connect that to working with many repositories. Teams can hand over small changes with a diff and a clear source without handing every contributor access to every project.
+  </aside>
+</section>
+
+<section id="board-reveal" data-chapter="Many Fires">
+  <div class="cols wr">
+    <div class="pic"><svg data-word-icon="mcp" data-scale="14" aria-hidden="true"></svg></div>
+    <div>
+      <p class="kicker">The same connector, here</p>
+      <h2 class="sm">From an idea to a board card</h2>
+      <p class="lead">Later we will let the assistant add a card to the Campfire demo board.</p>
+    </div>
+  </div>
+  <aside class="notes">
+    35–36 · Make the payoff explicit. You can open an ordinary PixiNotes board, give a connected assistant a small job and then watch the result arrive through sync. In the first Campfire, an AI-written script used the PixiNotes MCP to assemble board content. The slides and tools themselves are HTML. This evening a single write to a prepared board is enough to show the connection. Keep moving to the real design case now.
+  </aside>
+</section>
+
+<section id="vave" data-chapter="A Fire for VAVE">
+  <p class="kicker">A Fire for VAVE · vave.log</p>
+  <h2>The planning problem</h2>
+  <p class="lead narrow">Answer one question quickly. Who has capacity this week, across projects?</p>
+  <p class="small mt">vave.log is a prototype being tested.</p>
+  <aside class="notes">
+    36–50 · A Fire for VAVE. 36–38 · Return to the question from the opening. The discovery started with an agency survey and a clickable prototype. A first draft was based on assumptions and research. This made it possible to show something concrete and ask where it fit the real flow. Focus the case on planning capacity across projects. Tell people the examples today are fictional, and locate the decision in their context. A planning prototype makes a hypothesis visible so a person can try it and tell you what is missing.
+  </aside>
+</section>
+
+<section id="capacity-before" class="v2-evidence" data-chapter="A Fire for VAVE">
+  <p class="kicker">Before · Example data</p>
+  <h2 class="sm">The weekly planning sheet</h2>
+  <img class="v2-evidence-image" data-art="capacity-before.png" alt="Reconstruction of a weekly planning sheet with Brand Experience and Expo Pavilion. Ana Lopez is planned for 30 and 20 hours in week 42.">
+  <aside class="notes">
+    38–40 · This is a reconstruction of the kind of matrix observed, using the same synthetic values as the prototype view. Trace the week header first, then the two project rows for Ana Lopez. Brand Experience has 30 hours of 3D and Expo Pavilion has 20, both in week 42. Ask the room to work out whether Ana can take another task. The sheet is good at keeping time along the top and making cells quick to edit. The work is to trace where the same person appears when several projects share that week.
+  </aside>
+</section>
+
+<section id="capacity-observation" data-chapter="A Fire for VAVE">
+  <p class="kicker">What became visible while watching</p>
+  <h2 class="sm">People plan across projects</h2>
+  <div class="v2-cards two">
+    <article class="box"><h3>Planning</h3><p>Projects, people and weeks belong in one view.</p></article>
+    <article class="box hot"><h3>Time booking</h3><p>Phase and type of work are part of the decision.</p></article>
+  </div>
+  <aside class="notes">
+    40–42 · Describe the observation from the vave.log project notes. The person kept returning to the same matrix, with calendar weeks horizontally, and needed the split by phase and kind of work. Let people picture the difference between asking what feature they want and seeing which cells they scan before making a call. Give the first observation and its direct consequence, the team capacity belongs above the projects. Give the second, booking time uses the same planning language as assigning time.
+  </aside>
+</section>
+
+<section id="capacity-after" class="v2-evidence" data-chapter="A Fire for VAVE">
+  <p class="kicker">After · Example data</p>
+  <h2 class="sm">The same week in vave.log</h2>
+  <img class="v2-evidence-image" data-art="capacity-after.png" alt="VAVE.log capacity view showing team availability and the project plan. Ana Lopez has minus 10 hours of availability in week 42.">
+  <aside class="notes">
+    42–45 · Start at the top of the team view and point to Ana and week 42. There are 40 available hours and 50 planned, so the difference is 10 hours over. Follow the two projects below to see why. The new view preserves the weekly rhythm of the source matrix and puts the answer above the rows that explain it. Ask which bit of the display somebody would need to make the next staffing call. In this presentation the same example data is available on both sides so the comparison can be made without a live login.
+  </aside>
+</section>
+
+<section id="capacity-follow-through" data-chapter="A Fire for VAVE">
+  <p class="kicker">One workflow consequence</p>
+  <h2 class="sm">A booking follows the project phase</h2>
+  <div class="v2-cards two">
+    <article class="box"><h3>Weeks 42–43</h3><p class="lead">Concept Design</p></article>
+    <article class="box hot"><h3>From week 44</h3><p class="lead">Schematic Design</p></article>
+  </div>
+  <p class="small mt">When there is one clear match, the tool can suggest the phase and type of work.</p>
+  <aside class="notes">
+    45–47 · Use the same Brand Experience example. Phase and service type travel into time booking. A 3D booking in week 42 has Concept Design available as context, and the schematic phase starts from week 44 in the example. With a unique match, the application can suggest a phase and a service type. When more than one phase or role fits, a person chooses. This is a narrow example of making the workflow easier to review. It comes from seeing how people book time, not from adding another free-form question to the prompt.
+  </aside>
+</section>
+
+<section id="architecture" data-chapter="A Fire for VAVE">
+  <p class="kicker">vave.log under the surface</p>
+  <h2 class="sm">Two ways into the same work</h2>
+  <div class="v2-architecture" aria-label="Web app and AI assistant both access the shared application services, which enforce the signed-in user's permissions, and the database sits behind those services.">
+    <div class="v2-cards two">
+      <article class="box"><h3>Web app</h3><p>Click or type</p></article>
+      <article class="box"><h3>Assistant via MCP</h3><p>Ask or propose an action</p></article>
+    </div>
+    <div class="v2-down" aria-hidden="true"><span>↓</span><span>↓</span></div>
+    <p class="box hot">Shared application services · signed-in user’s permissions</p>
+    <div class="v2-down single" aria-hidden="true">↓</div>
+    <p class="box">Application database</p>
+  </div>
+  <aside class="notes">
+    47–49 · Describe the two paths. A person can use the interface. An assistant can call a tool. Both paths still go through application logic and the signed-in user's access rights. They meet before the database. Use a narrow example such as preparing a draft time entry in an example workspace. The source of truth is the service applying the same validation. Avoid getting lost in product names or tool counts. Keep the distinction between the vave.log assistant connection here and the PixiNotes board demo that comes after the talk.
+  </aside>
+</section>
+
+<section id="pilot" data-chapter="A Fire for VAVE">
+  <p class="kicker">A test VAVE could run</p>
+  <h2 class="sm">Try one planning week</h2>
+  <p class="lead narrow">Can a project lead spot a double booking and explain it from the plan?</p>
+  <p class="small mt">Use an example workspace. Record where they hesitate.</p>
+  <aside class="notes">
+    49–50 · Frame the pilot as a possible task for the people in the room. Ask a project lead to use an example week, find where hours conflict, and show the two rows that caused it. Note what they click first and where they need help. Bring that evidence back before deciding what to build next. We will use the conversation afterwards to see whether this or another small test is useful to VAVE.
+  </aside>
+</section>
+
+<section id="smoke" class="v2-evidence" data-chapter="Smoke">
+  <p class="kicker">Smoke</p>
+  <h2 class="sm">The things that can go wrong</h2>
+  <img class="v2-evidence-image v2-ghosts" data-art="bosses.svg" alt="Seven pixel ghosts represent confident errors, leaks, exposed keys, licensing, unmaintained tools, lock-in and over-reliance.">
+  <aside class="notes">
+    50–57 · Smoke. 50–51 · Give the ghosts one moment together. In practice, the ways a draft can cause trouble often come down to what we send into a tool, what we take out and who keeps it useful. Call out that access keys stay out of the code, and that licence and ownership questions travel with the asset. Then work through three examples that people in this room may actually face.
+  </aside>
+</section>
+
+<section id="facts" data-chapter="Smoke">
+  <p class="kicker">A claim in a pitch</p>
+  <h2 class="sm">Check the source before it goes out</h2>
+  <blockquote class="quote">“This venue allows that rigging height.”</blockquote>
+  <p class="lead mt">Find the applicable rule and have someone check it against the design.</p>
+  <aside class="notes">
+    51–53 · The guessed maximum height might look professional on a slide. The pitch commits real people and materials to that answer. Open the official guide, locate the applicable conditions, and pass the marked source to the person reviewing the design. The same idea works for names, image permissions or a client claim. If you need a second example, ask what would happen if an entirely plausible timeline came into a proposal without an owner to check it.
+  </aside>
+</section>
+
+<section id="client-material" data-chapter="Smoke">
+  <p class="kicker">A client render in a chat</p>
+  <h2 class="sm">Check the tool and the material</h2>
+  <div class="v2-cards three">
+    <article class="box"><h3>Tool</h3><p>Use an approved setup for the task.</p></article>
+    <article class="box"><h3>Permission</h3><p>Check client terms and applicable data requirements.</p></article>
+    <article class="box hot"><h3>Input</h3><p>Share the part the task needs. Use examples to rehearse.</p></article>
+  </div>
+  <aside class="notes">
+    53–55 · Picture an unreleased render with the brand and people in it. Who can authorise sharing it with this provider, and what does the task actually require? A training setting is one detail. The organisation's approved use, the agreement with the client and any applicable data requirements matter as well. For the prototype you can often use a placeholder image and copy. Fireplace Check gives people a set of questions to discuss, and uncertain answers mean that the check is still open.
+  </aside>
+</section>
+
+<section id="owner" data-chapter="Smoke">
+  <p class="kicker">A prototype the team starts using</p>
+  <h2 class="sm">Give it an owner</h2>
+  <p class="lead narrow">Who can review the next change, fix a broken version or retire the tool?</p>
+  <p class="small mt">Keep the source, the run instructions and the handoff together.</p>
+  <aside class="notes">
+    55–57 · A tiny tool can quickly become a dependency once people use it every week. Pick a person who can make a call on it and record where it lives and how to check that it works. Agree where people can report an issue. Keep the useful source and export formats available for a handoff. Link the three stories back to the stand prototype and the capacity plan. Someone always needs to know which result to check and who makes the decision.
+  </aside>
+</section>
+
+<section id="embers" data-chapter="Embers">
+  <div class="cols wl">
+    <div>
+      <p class="kicker">Embers</p>
+      <h2 class="sm">Start with one useful task</h2>
+      <ul class="v2-lines"><li>Say what you need.</li><li>Watch someone try it.</li><li>Decide what to check and who owns it.</li></ul>
+    </div>
+    <div class="pic"><svg data-px="embers" data-scale="17" aria-hidden="true"></svg></div>
+  </div>
+  <aside class="notes">
+    57–60 · Embers. 57–59 · Recap with the two cases. A clearly framed question for the stand gave a quick, testable prototype. Watching one person plan across projects exposed what vave.log needed to keep. Say why the decision to use the result belongs with the people doing the work. If the session has slipped a minute, use this slide to close in one sentence and move directly to the invitation.
+  </aside>
+</section>
+
+<section id="demos" data-chapter="Embers">
+  <p class="kicker">After the talk · 30 minutes</p>
+  <h2 class="sm">Which task would you try first?</h2>
+  <div class="v2-cards two">
+    <article class="box"><h3>60–75 · Demos</h3><p>Booth Builder and a live PixiNotes card.</p></article>
+    <article class="box hot"><h3>75–90 · Conversation</h3><p>Questions and one possible next test.</p></article>
+  </div>
+  <p class="mt"><a href="index.html#stage" target="_blank" rel="noopener">Open the demo guide</a></p>
+  <aside class="notes">
+    59–60 · Leave the question on screen for a moment. Thank the room and switch to the demo board and the prepared Booth Builder. For the first demo run Fortress, then open only the right-hand side and repeat. For the second demo have the assistant add a card in the disposable PixiNotes copy. The example card is available if sync is slow. Use Your questions for the conversation and record a possible test, a person and a visible success criterion on the board.
+  </aside>
+</section>

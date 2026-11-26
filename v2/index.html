@@ -1,0 +1,366 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="dark">
+  <meta name="robots" content="noindex">
+  <title>Playing with Fire · Campfire for VAVE</title>
+  <style>
+    :root {
+      --night: #0c170b;
+      --panel: #12210f;
+      --raised: #1b2d17;
+      --line: #405735;
+      --text: #e2f0c6;
+      --muted: #b0c19f;
+      --lime: #d4ef78;
+      --fire: #ffae00;
+      --gold: #ffe06a;
+      --shadow: #050a05;
+      --mono: ui-monospace, "SF Mono", Consolas, "Liberation Mono", monospace;
+      --sans: system-ui, -apple-system, "Segoe UI", sans-serif;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; }
+    body {
+      margin: 0;
+      color: var(--text);
+      background: var(--night);
+      font: 1rem/1.55 var(--sans);
+    }
+
+    a { color: var(--lime); text-underline-offset: 0.2em; }
+    a:hover { color: var(--gold); }
+    :focus-visible { outline: 3px solid var(--gold); outline-offset: 4px; }
+    h1, h2, h3, p { margin: 0; }
+    h2, h3 { line-height: 1.2; }
+    h2 { font-size: clamp(1.55rem, 3vw, 2.05rem); letter-spacing: -0.035em; }
+    h3 { font-size: 1.1rem; }
+    section[id] { scroll-margin-top: 1rem; }
+
+    .wrap { width: min(100% - 2rem, 72rem); margin-inline: auto; }
+    .visually-hidden, .skip-link:not(:focus) {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip-path: inset(50%);
+      white-space: nowrap;
+    }
+    .skip-link:focus {
+      position: fixed;
+      z-index: 2;
+      top: 0.75rem;
+      left: 0.75rem;
+      padding: 0.55rem 0.85rem;
+      color: var(--night);
+      background: var(--gold);
+    }
+
+    .site-header { border-bottom: 1px solid var(--line); background: var(--shadow); }
+    .site-nav {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 0 1rem;
+      min-height: 3.75rem;
+    }
+    .site-name, .site-links, .chapter-time, .cue, .section-note {
+      font-family: var(--mono);
+    }
+    .site-name {
+      display: flex;
+      align-items: center;
+      gap: 0.65rem;
+      color: var(--gold);
+      font-weight: 700;
+    }
+    .site-name::before {
+      content: "";
+      inline-size: 0.65rem;
+      block-size: 0.65rem;
+      background: var(--fire);
+      box-shadow: 2px 2px var(--raised);
+    }
+    .site-links { display: flex; flex-wrap: wrap; gap: 0 1rem; font-size: 0.84rem; }
+    .site-links a {
+      display: inline-flex;
+      align-items: center;
+      min-height: 2.75rem;
+      color: var(--muted);
+      text-decoration: none;
+    }
+    .site-links a:hover { color: var(--gold); }
+
+    main { padding-block: clamp(1.5rem, 4vw, 3.25rem) 3.5rem; }
+    .hero {
+      display: grid;
+      grid-template-columns: minmax(0, 1.48fr) minmax(0, 1fr);
+      align-items: stretch;
+      background: var(--shadow);
+      border: 1px solid var(--line);
+      border-bottom: 3px solid var(--line);
+    }
+    .hero-art {
+      display: block;
+      width: 100%;
+      height: 100%;
+      min-height: 0;
+      object-fit: contain;
+      image-rendering: pixelated;
+    }
+    .launch {
+      min-width: 0;
+      align-content: center;
+      padding: clamp(1.25rem, 3.5vw, 2.6rem);
+      background: var(--panel);
+      border-left: 1px solid var(--line);
+    }
+    .launch h2 { color: var(--gold); }
+    .intro { margin-top: 0.5rem; color: var(--muted); }
+    .actions { display: grid; gap: 0.65rem; margin-top: 1.3rem; }
+    .action {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 0.5rem;
+      min-height: 2.8rem;
+      padding: 0.55rem 0.85rem;
+      border: 1px solid var(--line);
+      background: var(--raised);
+      color: var(--text);
+      font-size: 0.94rem;
+      font-weight: 650;
+      text-decoration: none;
+    }
+    .action:hover { border-color: var(--lime); color: var(--lime); }
+    .primary {
+      color: var(--shadow);
+      background: var(--fire);
+      border-color: var(--fire);
+      box-shadow: inset 0 -3px #c17000;
+    }
+    .primary:hover {
+      color: var(--shadow);
+      background: var(--gold);
+      border-color: var(--gold);
+    }
+    .action-mark { font-family: var(--mono); }
+
+    .run {
+      display: grid;
+      grid-template-columns: minmax(0, 0.83fr) minmax(0, 1.4fr);
+      gap: clamp(1.5rem, 4vw, 3.25rem);
+      align-items: start;
+      margin-top: clamp(2rem, 5vw, 3.5rem);
+    }
+    .section-heading {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 0.35rem 0.75rem;
+      flex-wrap: wrap;
+      margin-bottom: 0.9rem;
+    }
+    .section-heading h2 { color: var(--lime); }
+    .section-note { color: var(--muted); font-size: 0.78rem; }
+
+    .chapters, .cues, .tool-grid { list-style: none; margin: 0; padding: 0; }
+    .chapters { border: 1px solid var(--line); background: var(--panel); }
+    .chapters li {
+      display: flex;
+      align-items: baseline;
+      gap: 0.75rem;
+      padding: 0.72rem 0.85rem;
+    }
+    .chapters li + li { border-top: 1px solid var(--line); }
+    .chapter-time {
+      flex: 0 0 5ch;
+      color: var(--muted);
+      font-size: 0.9rem;
+      font-weight: 700;
+      white-space: nowrap;
+    }
+
+    .preflight {
+      margin-top: 1rem;
+      padding: 1rem;
+      background: var(--panel);
+      border: 1px solid var(--line);
+    }
+    .preflight p { margin-top: 0.55rem; }
+    .preflight p, .cues p { color: var(--muted); font-size: 0.93rem; }
+    .preflight strong, .cues strong { color: var(--text); }
+    kbd {
+      display: inline-block;
+      padding: 0 0.3em;
+      border: 1px solid var(--line);
+      border-bottom-width: 2px;
+      background: var(--raised);
+      color: var(--text);
+      font: 0.86em/1.5 var(--mono);
+      white-space: nowrap;
+    }
+
+    .cues { display: grid; gap: 0.72rem; }
+    .cues li {
+      padding: 1rem 1.1rem;
+      border: 1px solid var(--line);
+      border-left: 3px solid var(--fire);
+      background: var(--panel);
+    }
+    .cues li:last-child { border-left-color: var(--lime); }
+    .cue { color: var(--gold); font-size: 0.77rem; font-weight: 700; }
+    .cues h3 { margin-top: 0.22rem; }
+    .cues p { margin-top: 0.45rem; }
+    .prompt {
+      margin: 0.6rem 0 0;
+      padding: 0.55rem 0.7rem;
+      color: var(--text);
+      background: var(--raised);
+      border-left: 2px solid var(--line);
+      font-size: 0.93rem;
+    }
+
+    .tools { margin-top: clamp(2rem, 5vw, 3.5rem); }
+    .tool-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 0.65rem;
+    }
+    .tool-grid li { display: grid; }
+    .tool-grid a {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      align-content: start;
+      column-gap: 0.4rem;
+      min-height: 5rem;
+      padding: 0.78rem 0.85rem;
+      color: var(--text);
+      border: 1px solid var(--line);
+      background: var(--panel);
+      text-decoration: none;
+    }
+    .tool-grid a:hover { color: var(--lime); border-color: var(--lime); }
+    .tool-name { font-weight: 650; }
+    .tool-desc { margin-top: 0.15rem; grid-column: 1 / -1; color: var(--muted); font-size: 0.83rem; }
+
+    @media (max-width: 60rem) {
+      .hero { grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr); }
+      .tool-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    }
+
+    @media (max-width: 44rem) {
+      .hero, .run { grid-template-columns: minmax(0, 1fr); }
+      .hero-art { height: auto; }
+      .launch { border-left: 0; border-top: 1px solid var(--line); }
+    }
+
+    @media (max-width: 23rem) {
+      .site-nav { gap: 0 0.6rem; }
+      .site-links { gap: 0 0.7rem; }
+      .tool-grid { grid-template-columns: minmax(0, 1fr); }
+    }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header">
+    <nav class="site-nav wrap" aria-label="On this page">
+      <span class="site-name">Campfire v2</span>
+      <div class="site-links">
+        <a href="#stage">Stage run</a>
+        <a href="#tools">Tools</a>
+      </div>
+    </nav>
+  </header>
+
+  <main class="wrap" id="main" tabindex="-1">
+    <header class="hero">
+      <h1 class="visually-hidden">Playing with Fire</h1>
+      <img class="hero-art" src="../art/title-fire.svg" width="1280" height="720" alt="">
+      <div class="launch">
+        <h2>Start the talk</h2>
+        <p class="intro">An evening on AI, vibecoding and repos for VAVE. 60-minute English talk, 15 minutes of demos and 15 minutes of Q&amp;A.</p>
+        <div class="actions">
+          <a class="action primary" href="talk.html">Open the presentation <span class="action-mark" aria-hidden="true">→</span></a>
+          <a class="action" href="talk.pdf">Open the fallback PDF <span class="action-mark" aria-hidden="true">→</span></a>
+          <a class="action" href="campfire-v2.pixiboard.json" download>Download PixiNotes board <span class="action-mark" aria-hidden="true">↓</span></a>
+        </div>
+      </div>
+    </header>
+
+    <div class="run">
+      <section aria-labelledby="schedule-heading">
+        <div class="section-heading">
+          <h2 id="schedule-heading">Talk schedule</h2>
+          <span class="section-note">Elapsed minutes</span>
+        </div>
+        <ol class="chapters" role="list">
+          <li><span class="chapter-time">00–06</span> Gathering</li>
+          <li><span class="chapter-time">06–10</span> Old Fires</li>
+          <li><span class="chapter-time">10–19</span> Words</li>
+          <li><span class="chapter-time">19–29</span> Kindling</li>
+          <li><span class="chapter-time">29–36</span> Many Fires</li>
+          <li><span class="chapter-time">36–50</span> A Fire for VAVE</li>
+          <li><span class="chapter-time">50–57</span> Smoke</li>
+          <li><span class="chapter-time">57–60</span> Embers</li>
+        </ol>
+        <div class="preflight">
+          <h3>Before the room opens</h3>
+          <p>Put the standalone deck on the projector and keep the Reveal speaker notes on your laptop. Use <kbd>←</kbd> <kbd>→</kbd> to move, <kbd>S</kbd> to open notes and <kbd>T</kbd> to switch to light mode if the projector washes out the dark slides.</p>
+          <p>Keep the local PDF, Booth Builder and PixiNotes open. To rehearse the live write, drag the downloaded <strong>.pixiboard.json</strong> file into PixiNotes and connect the imported copy to the sync folder. If you plan to use the guest QR, scan it with a phone on the venue network and verify a test question comes through.</p>
+        </div>
+      </section>
+
+      <section id="stage" aria-labelledby="stage-heading">
+        <div class="section-heading">
+          <h2 id="stage-heading">Stage run</h2>
+          <span class="section-note">60–75 demos · 75–90 Q&amp;A</span>
+        </div>
+        <ol class="cues" role="list">
+          <li>
+            <div class="cue">60–67 · Demo 1</div>
+            <h3><a href="modules/booth-builder.html">Booth Builder</a></h3>
+            <p>Load <strong>Fortress</strong>. Click <strong>Open the doors</strong>, then <strong>Skip</strong> to jump to the result if time is tight. Select <strong>Open side</strong> and click midway down the right-hand edge once. Run it again and compare the visitor counts.</p>
+            <p>In the tested setup, visitors entering the booth went from <strong>0 → 12 of 36</strong> in the simulation. If the tool stalls, use the prepared booth comparison in the deck or PDF.</p>
+          </li>
+          <li>
+            <div class="cue">67–75 · Demo 2</div>
+            <h3>PixiNotes MCP</h3>
+            <p>Use the MCP client with the imported local rehearsal board and its sync folder connected.</p>
+            <blockquote class="prompt">“On the local Campfire v2 rehearsal board, create an Ideas/Bubbles card titled ‘Live MCP test’. Add the idea ‘Compare planned hours with booked hours for one example project.’”</blockquote>
+            <p>Confirm that the card and idea appear in PixiNotes. If the live write stalls, show the prepared <strong>MCP example</strong> Bubbles card.</p>
+          </li>
+          <li>
+            <div class="cue">75–90 · Q&amp;A</div>
+            <h3>Questions and a possible pilot</h3>
+            <p>Take questions aloud and capture them in <strong>Your questions</strong>. In the last few minutes, ask VAVE to choose an owner and one measurable success criterion for a possible pilot. Record both in <strong>Next test</strong>.</p>
+            <p>If PixiNotes is unavailable, take questions and record the decision in a local text file.</p>
+          </li>
+        </ol>
+      </section>
+    </div>
+
+    <section class="tools" id="tools" aria-labelledby="tools-heading">
+      <div class="section-heading">
+        <h2 id="tools-heading">Interactive tools</h2>
+      </div>
+      <ul class="tool-grid" role="list">
+        <li><a href="modules/booth-builder.html"><span class="tool-name">Booth Builder</span><span class="action-mark" aria-hidden="true">→</span><span class="tool-desc">Compare two booth layouts</span></a></li>
+        <li><a href="modules/context-circle.html"><span class="tool-name">Context Circle</span><span class="action-mark" aria-hidden="true">→</span><span class="tool-desc">Try a pinned instruction</span></a></li>
+        <li><a href="modules/prompt-forge.html"><span class="tool-name">Prompt Forge</span><span class="action-mark" aria-hidden="true">→</span><span class="tool-desc">Write a booth brief with checks</span></a></li>
+        <li><a href="modules/fireplace-check.html"><span class="tool-name">Fireplace Check</span><span class="action-mark" aria-hidden="true">→</span><span class="tool-desc">Review an AI workflow for risks</span></a></li>
+        <li><a href="modules/git-time-machine.html"><span class="tool-name">Git Time Machine</span><span class="action-mark" aria-hidden="true">→</span><span class="tool-desc">Walk through a Git change</span></a></li>
+        <li><a href="modules/inventory.html"><span class="tool-name">Inventory</span><span class="action-mark" aria-hidden="true">→</span><span class="tool-desc">Search the AI and repo glossary</span></a></li>
+        <li><a href="modules/token-oracle.html"><span class="tool-name">Token Oracle</span><span class="action-mark" aria-hidden="true">→</span><span class="tool-desc">Explore next-token sampling</span></a></li>
+        <li><a href="modules/myth-or-fact.html"><span class="tool-name">Myth or Fact?</span><span class="action-mark" aria-hidden="true">→</span><span class="tool-desc">Test claims about AI</span></a></li>
+      </ul>
+    </section>
+  </main>
+</body>
+</html>
